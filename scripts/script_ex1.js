@@ -8,9 +8,20 @@ const labels = [
 const data = {
     labels: labels,
     datasets: [{
-        label: 'Les inscrits à l’UT2J en L2 MIASHS,
+        label: 'Les inscrits à l’UT2J en L2 MIASHS',
         backgroundColor: 'rgb(0, 199, 193)',
         borderColor: 'rgb(0, 199, 193)',
         data: [79, 70, 134, 149],
     }]
 };
+
+const config = {
+    type: 'line',
+    data: data,
+    options: {}
+};
+
+const myChart = new Chart(
+    document.querySelector('canvas'),
+    config
+);
