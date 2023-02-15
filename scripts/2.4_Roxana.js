@@ -16,6 +16,7 @@ xhr.onreadystatechange = function () {
             hommesSoc.push({ year: fields.annee_universitaire, value: hommes}) ;
             femmesSoc.push({ year: fields.annee_universitaire, value: femmes}) ;
         }
+        
         hommesSoc.sort(function(a, b) {
             if (a.year < b.year) {
               return -1;
@@ -61,13 +62,13 @@ xhr.onreadystatechange = function () {
                 label: 'Les hommes inscrits à l’UT2J en L2 Sociologie',
                 backgroundColor: '#f4a261',
                 borderColor: '#f4a261',
-                data: hommesSoc
+                data: hommesSoc.map(item => item.value)
             },
             {
                 label: 'Les femmes inscrites à l’UT2J en L2 Sociologie',
                 backgroundColor: '#e76f51',
                 borderColor: '#e76f51',
-                data: femmesSoc
+                data: femmesSoc.map(item => item.value)
             }],
         }
         

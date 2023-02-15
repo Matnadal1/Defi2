@@ -13,10 +13,30 @@ xhr.onreadystatechange = function() {
             const fields = record.fields;
             const girls = fields.femmes;
             const boys = fields.hommes;
-            girlsHistory.push(girls);
-            boysHistory.push(boys);
+            girlsHistory.push({ year: fields.annee_universitaire, value: boys});
+            boysHistory.push({ year: fields.annee_universitaire, value: girls});
 
         }
+
+        boysHistory.sort(function(a, b) {
+            if (a.year < b.year) {
+              return -1;
+            } else if (a.year > b.year) {
+              return 1;
+            } else {
+              return 0;
+            }
+        });
+
+        girlsHistory.sort(function(a, b) {
+            if (a.year < b.year) {
+              return -1;
+            } else if (a.year > b.year) {
+              return 1;
+            } else {
+              return 0;
+            }
+        });
 
         const labels = [
             '2018-19',
@@ -43,13 +63,13 @@ xhr.onreadystatechange = function() {
                     label: "'Les hommes inscrits à l'UT2J en L2 Histoire'",
                     backgroundColor: '#009c1d',
                     borderColor: '#009c1d',
-                    data: boysHistory
+                    data: boysHistory.map(item => item.value)
                 },
                 {
                     label: "'Les femmes inscrites à l'UT2J en L2 Histoire'",
                     backgroundColor: '#9c0056',
                     borderColor: '#9c0056',
-                    data: girlsHistory
+                    data: girlsHistory.map(item => item.value)
                 }
             ],
         }

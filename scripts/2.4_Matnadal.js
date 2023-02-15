@@ -27,7 +27,7 @@ xhr.onreadystatechange = function() {
         let record = données[i];
         let univ = record.fields.etablissement_lib;
         let annee = record.fields.annee_universitaire;
-        let effectif = record.fields.effectif_total;
+        let effectif = record.fields.effectif_total_sans_cpge;
         if (!effectifs_univ_par_date[univ]) {
             effectifs_univ_par_date[univ] = {};
         }

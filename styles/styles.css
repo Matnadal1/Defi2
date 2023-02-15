@@ -143,3 +143,14 @@ body {
 p {
     text-align:justify;
 }
+
+footer{
+
+    width: 100%;
+    bottom: 0; left: 0; right: 0;
+    /* Reste du CSS... */
+  }
+
+#index_nav:hover {
+    color:rgb(0, 183, 255)
+}
